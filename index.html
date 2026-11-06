@@ -21,7 +21,8 @@
     --sc-ink-soft:   #A5A8B2;
     --sc-accent:     #3A49FF;
     --sc-accent-ink: #FFFFFF;
-    --accent-on-dark: #8F99FF;  /* same hue, lighter stop for small text on the dark ground */
+    --accent-on-dark: #8F99FF;
+    --amber: #FFB627; --pink: #FF3D7F;  /* same hue, lighter stop for small text on the dark ground */
     --sc-font-display: "Archivo", system-ui, sans-serif;
     --sc-font-text:    "Be Vietnam Pro", system-ui, sans-serif;
     --sc-font-mono:    "Be Vietnam Pro", system-ui, sans-serif;
@@ -46,7 +47,7 @@
     display: grid; place-items: center;
     font: 700 0.95rem/1 var(--sc-font-display); letter-spacing: -0.02em;
   }
-  .folio__mark i { display:block; width: 12px; height: 12px; background: var(--sc-accent); border-radius: 2px; margin-bottom: 6px; }
+  .folio__mark i { display:block; width: 12px; height: 12px; background: var(--amber); border-radius: 2px; margin-bottom: 6px; }
   .folio__run {
     position: absolute; left: 50%; top: 50%;
     transform: translate(-50%, -50%) rotate(180deg);
@@ -121,7 +122,7 @@
   .inter__no {
     font: 800 clamp(4.5rem, 3rem + 7vw, 10rem)/0.82 var(--sc-font-display);
     letter-spacing: -0.06em; font-variant-numeric: tabular-nums;
-    color: var(--accent-on-dark);
+    color: var(--no, var(--accent-on-dark));
     padding-top: 0.08em;
   }
   .inter__t { display: grid; gap: var(--sc-3); padding-bottom: 0.4rem; }
@@ -143,14 +144,18 @@
     margin: 0 0 0 -0.04em;
   }
   .title h1 span { display: block; }
-  .title h1 .last { color: var(--sc-ink); }
-  .title h1 .first { color: var(--sc-ink-soft); font-weight: 500; }
+  .title h1 .last { color: var(--amber); }
+  .title h1 .first { color: var(--sc-ink); font-weight: 500; }
   .title__sub {
     margin-top: var(--sc-6);
     display: grid; grid-template-columns: minmax(0, 34rem); gap: var(--sc-3);
   }
   .title__role { font: 600 var(--sc-t-xl)/1.2 var(--sc-font-display); letter-spacing: -0.02em; }
-  .title__role em { font-style: normal; color: var(--accent-on-dark); }
+  .title__role em { font-style: normal; color: var(--pink); }
+  .pills { display: flex; flex-wrap: wrap; gap: var(--sc-2); margin-bottom: var(--sc-5); }
+  .pills b, .pills span { display: inline-flex; align-items: center; min-height: 34px; padding: 0 0.9rem; border-radius: var(--sc-r-pill); font-size: var(--sc-t-sm); font-weight: 600; }
+  .pills b { background: var(--pink); color: #fff; }
+  .pills span { border: 1px solid var(--sc-hairline-strong); color: var(--sc-ink-soft); }
   .title__line { color: var(--sc-ink-soft); max-width: 46ch; }
   .contents { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--sc-6); border-top: 1px solid var(--sc-hairline); }
   .contents a {
@@ -181,7 +186,7 @@
   .plate figcaption { display: flex; justify-content: space-between; gap: var(--sc-3); margin-top: var(--sc-3); font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
   .about { display: grid; gap: var(--sc-7); align-content: start; }
   .about__lede { font: 500 var(--sc-t-xl)/1.32 var(--sc-font-display); letter-spacing: -0.02em; text-wrap: pretty; max-width: 30ch; }
-  .about__lede b { font-weight: 700; color: var(--accent-on-dark); }
+  .about__lede b { font-weight: 700; color: var(--amber); }
   .facts { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--sc-hairline); }
   .facts > div { padding: var(--sc-4) var(--sc-4) var(--sc-4) 0; border-bottom: 1px solid var(--sc-hairline); display: grid; gap: var(--sc-1); }
   .facts > div:nth-child(odd) { padding-right: var(--sc-5); border-right: 1px solid var(--sc-hairline); }
@@ -204,10 +209,10 @@
     align-items: baseline; padding-block: var(--sc-5);
     border-bottom: 1px solid var(--sc-hairline);
   }
-  .steps li::before { counter-increment: s; content: counter(s, decimal-leading-zero); font: 600 0.9rem/1 var(--sc-font-display); color: var(--sc-ink-soft); font-variant-numeric: tabular-nums; }
+  .steps li::before { counter-increment: s; content: counter(s, decimal-leading-zero); font: 600 0.9rem/1 var(--sc-font-display); color: var(--pink); font-variant-numeric: tabular-nums; }
   .steps h3 { font: 600 var(--sc-t-xl)/1.05 var(--sc-font-display); letter-spacing: -0.025em; }
   .steps p { color: var(--sc-ink-soft); max-width: 46ch; }
-  .steps li:last-child h3 { color: var(--accent-on-dark); }
+  .steps li:last-child h3 { color: var(--amber); }
   .method__note { margin-top: var(--sc-7); max-width: 40ch; font: 500 var(--sc-t-lg)/1.4 var(--sc-font-display); letter-spacing: -0.015em; }
   @media (max-width: 700px) {
     .steps li { grid-template-columns: 2.6rem 1fr; }
@@ -229,6 +234,7 @@
     display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--sc-5); align-items: center;
     padding-block: clamp(0.3rem, 1.1vh, 0.9rem);
     border-bottom: 1px solid var(--sc-hairline);
+    border-left: 4px solid var(--row-c, var(--amber)); padding-left: var(--sc-4);
     opacity: var(--row-o, 0.18);
     transition: opacity 260ms var(--sc-ease-out);
   }
@@ -236,12 +242,12 @@
     font: 800 clamp(2.4rem, min(1.2rem + 4.6vw, 8.2vh), 6rem)/0.9 var(--sc-font-display);
     letter-spacing: -0.055em; font-variant-numeric: tabular-nums; white-space: nowrap;
   }
-  .ledger__fig small { font-size: 0.36em; font-weight: 600; letter-spacing: -0.01em; margin-left: 0.18em; }
+  .ledger__fig small { color: var(--amber); font-size: 0.36em; font-weight: 700; letter-spacing: -0.01em; margin-left: 0.18em; }
   .ledger__what { display: grid; gap: 2px; }
   .ledger__what b { font: 600 var(--sc-t-lg)/1.2 var(--sc-font-display); letter-spacing: -0.015em; }
   .ledger__what span { color: var(--sc-ink-soft); font-size: var(--sc-t-sm); }
   .ledger__foot { display: flex; justify-content: space-between; gap: var(--sc-5); align-items: end; padding-top: var(--sc-3); font-size: var(--sc-t-xs); color: var(--sc-ink-soft); }
-  .ledger__total b { display: block; color: #fff; font: 700 var(--sc-t-lg)/1.1 var(--sc-font-display); font-variant-numeric: tabular-nums; }
+  .ledger__total b { display: block; color: var(--amber); font: 700 var(--sc-t-lg)/1.1 var(--sc-font-display); font-variant-numeric: tabular-nums; }
   @media (max-width: 700px) {
     .ledger__rows li { grid-template-columns: 1fr; gap: 2px; }
     .ledger__fig { font-size: clamp(2.3rem, 11vw, 3.4rem); }
@@ -264,7 +270,7 @@
     font-size: var(--sc-t-sm); font-weight: 500; color: var(--sc-ink-soft);
     transition: background-color 160ms var(--sc-ease-out), color 160ms var(--sc-ease-out), border-color 160ms var(--sc-ease-out);
   }
-  .seg button[aria-pressed="true"] { background: var(--sc-accent); border-color: var(--sc-accent); color: #fff; }
+  .seg button[aria-pressed="true"] { background: var(--pink); border-color: var(--pink); color: #fff; }
   @media (hover:hover) and (pointer:fine) { .seg button:not([aria-pressed="true"]):hover { color: var(--sc-ink); border-color: var(--sc-ink-soft); } }
   .seg button:active { transform: scale(0.97); }
   .budget { display: grid; gap: var(--sc-3); }
@@ -312,7 +318,7 @@
   .roles .co { display: grid; gap: 2px; }
   .roles .co b { font: 600 var(--sc-t-xl)/1.05 var(--sc-font-display); letter-spacing: -0.025em; }
   .roles .co span { color: var(--sc-ink-soft); font-size: var(--sc-t-sm); }
-  .roles .metric { font: 600 var(--sc-t-lg)/1.2 var(--sc-font-display); letter-spacing: -0.015em; font-variant-numeric: tabular-nums; }
+  .roles .metric { color: var(--amber); font: 600 var(--sc-t-lg)/1.2 var(--sc-font-display); letter-spacing: -0.015em; font-variant-numeric: tabular-nums; }
   .roles .metric small { display: block; font: 400 var(--sc-t-xs)/1.4 var(--sc-font-text); letter-spacing: 0.02em; color: var(--sc-ink-soft); }
   .roles .tog { width: 1.5rem; height: 1.5rem; position: relative; align-self: center; }
   .roles .tog::before, .roles .tog::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 1.5px; margin: -0.75px 0 0 -6px; background: var(--sc-ink-soft); transition: transform 200ms var(--sc-ease-out); }
@@ -322,7 +328,7 @@
   .roles .more { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: var(--sc-5); padding-bottom: var(--sc-6); }
   .roles .more ul { margin: 0; padding: 0 0 0 1.1rem; display: grid; gap: var(--sc-2); color: var(--sc-ink-soft); max-width: 70ch; }
   .roles .more a { color: var(--sc-ink); }
-  .roles .now-tag { display: inline-block; margin-left: 0.6em; font: 600 0.68rem/1 var(--sc-font-text); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-on-dark); vertical-align: 0.35em; }
+  .roles .now-tag { display: inline-block; margin-left: 0.6em; padding: 0.3em 0.6em; border-radius: var(--sc-r-pill); background: var(--pink); font: 600 0.68rem/1 var(--sc-font-text); letter-spacing: 0.1em; text-transform: uppercase; color: #fff; vertical-align: 0.35em; }
   @media (max-width: 860px) {
     .roles details > summary { grid-template-columns: 1fr 1.5rem; gap: var(--sc-2) var(--sc-4); }
     .roles .when { grid-column: 1; grid-row: 1; }
@@ -347,6 +353,8 @@
   .craft > div { display: grid; gap: var(--sc-3); }
   .craft p { color: var(--sc-ink-soft); max-width: 46ch; }
   .inline-list { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: var(--sc-2); }
+  .inline-list li:nth-child(1) { background: var(--pink); color:#fff; }
+  .inline-list li:nth-child(2) { background: var(--amber); color:#14110a; }
   .inline-list li { padding: 0.35rem 0.75rem; border-radius: var(--sc-r-sm); background: var(--sc-surface); box-shadow: var(--sc-edge); font-size: var(--sc-t-sm); }
   @media (max-width: 860px) { .tools { grid-template-columns: 1fr; gap: var(--sc-8); } }
 
@@ -354,7 +362,7 @@
   .colophon { background: var(--sc-canvas); border-top: 1px solid var(--sc-hairline); }
   .colophon__in { padding-block: var(--sc-9) var(--sc-6); display: grid; gap: var(--sc-8); }
   .colophon__ask { font: 500 var(--sc-t-2xl)/1.12 var(--sc-font-display); letter-spacing: -0.03em; max-width: 24ch; text-wrap: balance; }
-  .colophon__ask a { color: var(--sc-ink); text-decoration-color: var(--sc-accent); text-decoration-thickness: 3px; text-underline-offset: 0.16em; }
+  .colophon__ask a { color: var(--amber); text-decoration-color: var(--pink); text-decoration-thickness: 3px; text-underline-offset: 0.16em; }
   @media (hover:hover) and (pointer:fine) { .colophon__ask a:hover { color: var(--accent-on-dark); } }
   .plates { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--sc-hairline); }
   .plates > div { padding: var(--sc-4) var(--sc-4) var(--sc-4) 0; display: grid; gap: var(--sc-2); align-content: start; }
@@ -410,6 +418,7 @@
       <div class="title__body">
         <h1 id="name"><span class="first">Cao</span><span class="last">Khiêm</span></h1>
         <div class="title__sub">
+          <p class="pills"><b>Performance Marketer</b><span>Meta Ads · TikTok Ads</span></p>
           <p class="title__role">Performance Marketing Lead. <em>Meta Ads, TikTok Ads.</em></p>
           <p class="title__line vi">Khoảng 7 năm chạy quảng cáo chuyển đổi cho thẩm mỹ, thực phẩm chức năng và trang sức. Mọi quyết định bắt đầu từ số liệu.</p>
           <p class="title__line en">About 7 years running conversion ads for aesthetics, health supplements and jewelry. Every decision starts from the numbers.</p>
@@ -427,7 +436,7 @@
   </section>
 
   <!-- 01 THE PERSON -->
-  <section id="ch1" class="chapter" data-sc-act="flow" data-ch="01" data-ch-vi="Người làm" data-ch-en="The person" aria-labelledby="ch1-h">
+  <section id="ch1" style="--no:var(--pink)" class="chapter" data-sc-act="flow" data-ch="01" data-ch-vi="Người làm" data-ch-en="The person" aria-labelledby="ch1-h">
     <div class="sc-wrap">
       <header class="inter" data-sc-in data-sc-stagger="60">
         <span class="inter__no" aria-hidden="true">01</span>
@@ -464,7 +473,7 @@
   </section>
 
   <!-- 02 METHOD -->
-  <section id="ch2" class="chapter" data-sc-act="flow" data-ch="02" data-ch-vi="Phương pháp" data-ch-en="Method" aria-labelledby="ch2-h" style="--ground:#0F1014;background:#0F1014">
+  <section id="ch2" class="chapter" data-sc-act="flow" data-ch="02" data-ch-vi="Phương pháp" data-ch-en="Method" aria-labelledby="ch2-h" style="--ground:#0F1014;background:#0F1014;--no:var(--amber)">
     <div class="sc-wrap">
       <header class="inter" data-sc-reveal="left" data-sc-reveal-at="0 0.16">
         <span class="inter__no" aria-hidden="true">02</span>
@@ -501,7 +510,7 @@
             <p class="ledger__fig"><span data-fig="3.5" data-dec="1">0</span><small class="vi">tỷ</small><small class="en">B ₫</small></p>
             <p class="ledger__what"><b><span class="vi">Doanh thu Maya Diamond, tháng 9/2026</span><span class="en">Maya Diamond revenue, September 2026</span></b><span class="vi">Chi phí quảng cáo 6% doanh thu. 4.200 tin nhắn, 50.000đ mỗi tin.</span><span class="en">Ad spend 6% of revenue. 4,200 messages at ₫50,000 each.</span></p>
           </li>
-          <li data-at="0.12 0.3">
+          <li data-at="0.12 0.3" style="--row-c:var(--pink)">
             <p class="ledger__fig"><span data-fig="2" data-dec="0">0</span><small class="vi">tỷ</small><small class="en">B ₫</small></p>
             <p class="ledger__what"><b><span class="vi">Doanh thu Kangrea, tháng 9/2026</span><span class="en">Kangrea revenue, September 2026</span></b><span class="vi">Gồm khách mới và khách cũ. 1.200 số điện thoại, 660.000đ mỗi số.</span><span class="en">New and returning clients. 1,200 phone leads at ₫660,000 each.</span></p>
           </li>
@@ -509,11 +518,11 @@
             <p class="ledger__fig"><span data-fig="8" data-dec="0">0</span><small class="vi">tỷ/tháng</small><small class="en">B ₫/mo</small></p>
             <p class="ledger__what"><b><span class="vi">Medic Group, 2 cơ sở, tháng cao điểm</span><span class="en">Medic Group, 2 clinics, peak month</span></b><span class="vi">Chi phí quảng cáo dưới 30% doanh thu mới, dưới 1,5 triệu mỗi khách.</span><span class="en">Ad spend under 30% of new revenue, under ₫1.5M per customer.</span></p>
           </li>
-          <li data-at="0.4 0.58">
+          <li data-at="0.4 0.58" style="--row-c:var(--pink)">
             <p class="ledger__fig"><span data-fig="3" data-dec="0">0</span><small class="vi">tỷ/tháng</small><small class="en">B ₫/mo</small></p>
             <p class="ledger__what"><b><span class="vi">Eureka, từ 0 trong 6 tháng</span><span class="en">Eureka, from zero in six months</span></b><span class="vi">Tháng tốt nhất: chi phí quảng cáo 15% doanh thu, 500.000đ mỗi số điện thoại.</span><span class="en">Best month: ad spend 15% of revenue, ₫500,000 per phone lead.</span></p>
           </li>
-          <li data-at="0.54 0.72">
+          <li data-at="0.54 0.72" style="--row-c:#fff">
             <p class="ledger__fig"><span data-fig="3" data-dec="0">0</span><small class="vi">tỷ/tháng</small><small class="en">B ₫/mo</small></p>
             <p class="ledger__what"><b><span class="vi">Ngân sách cao điểm, MegaGangNam</span><span class="en">Peak ad budget, MegaGangNam</span></b><span class="vi">Trung bình 1,5 tỷ mỗi tháng. ROAS nội địa trên 3, quốc tế trên 5.</span><span class="en">Average ₫1.5B a month. ROAS above 3 domestic, above 5 international.</span></p>
           </li>
@@ -578,7 +587,7 @@
   </section>
 
   <!-- 05 CAREER -->
-  <section id="ch5" class="chapter" data-sc-act="flow" data-ch="05" data-ch-vi="Hành trình" data-ch-en="Career" aria-labelledby="ch5-h">
+  <section id="ch5" style="--no:var(--pink)" class="chapter" data-sc-act="flow" data-ch="05" data-ch-vi="Hành trình" data-ch-en="Career" aria-labelledby="ch5-h">
     <div class="sc-wrap">
       <header class="inter" data-sc-in data-sc-stagger="60">
         <span class="inter__no" aria-hidden="true">05</span>
@@ -658,7 +667,7 @@
   </section>
 
   <!-- 06 TOOLS -->
-  <section id="ch6" class="chapter tools-ch" data-sc-act="flow" data-ch="06" data-ch-vi="Công cụ" data-ch-en="Tools" aria-labelledby="ch6-h">
+  <section id="ch6" style="--no:var(--amber)" class="chapter tools-ch" data-sc-act="flow" data-ch="06" data-ch-vi="Công cụ" data-ch-en="Tools" aria-labelledby="ch6-h">
     <div class="sc-wrap">
       <header class="inter" data-sc-reveal="up" data-sc-reveal-at="0 0.16">
         <span class="inter__no" aria-hidden="true">06</span>
