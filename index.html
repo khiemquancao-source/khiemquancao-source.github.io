@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cao Khiêm</title>
+<meta name="description" content="Cao Khiêm — Performance Marketer: Meta Ads, TikTok Ads cho thẩm mỹ, thực phẩm chức năng, trang sức.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap">
+<style>
+/* Dark bento portfolio: near-black ground, soft graphite cards with hairline borders, one typeface (Be Vietnam Pro) in restrained weights, white for emphasis, green only for "active" status */
+:root{
+  --bg:#0A0A0B;
+  --card:#141416; --card-2:#19191C; --card-hi:#202024;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+  --ink:#F4F4F5; --muted:#A1A1AA; --faint:#71717A;
+  --accent:#FFFFFF; --signal:#FFB627; --bar-past:#4F5DFF;
+  --blue:#4F5DFF; --amber:#FFB627; --pink:#FF3D7F;
+  --blue-soft:rgba(79,93,255,.14); --pink-soft:rgba(255,61,127,.14); --amber-soft:rgba(255,182,39,.14);
+  --radius:18px; --radius-s:12px;
+  --f:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  color-scheme:dark;
+}
+
+/* language switch */
+:root:not([data-lang="en"]) .en{display:none !important}
+:root[data-lang="en"] .vi{display:none !important}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);font-weight:400;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--ink);text-underline-offset:3px;text-decoration-color:var(--faint)}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--f);margin:0;line-height:1.15;text-wrap:balance;font-weight:600;letter-spacing:-.02em}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+dl,dd{margin:0}
+img{max-width:100%}
+
+.wrap{max-width:76rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:600px){.wrap{padding-left:28px;padding-right:28px}}
+.mono,.tag{font-family:var(--f);font-size:.78rem;font-weight:500;letter-spacing:.02em;color:var(--muted)}
+
+/* shared card surface */
+.hero-grid>div,.portrait,.kpi,.steps li,.case,.mini,.chart,.tl>li,.skill,.facts div,.contact,.info>div:first-child{
+  background:linear-gradient(180deg,var(--card-2) 0%,var(--card) 100%);
+  border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 1px 2px rgba(0,0,0,.4);
+}
+
+/* ===== header ===== */
+.top{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.78);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:1.25rem;min-height:3.75rem}
+.brand{display:inline-flex;align-items:center;gap:.6rem;min-height:40px;font-weight:600;font-size:1.02rem;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
+.brand i{width:.5rem;height:.5rem;border-radius:50%;background:var(--signal);display:inline-block;box-shadow:0 0 0 3px var(--amber-soft)}
+.nav{display:flex;gap:.15rem;margin-left:auto}
+.nav a{display:inline-flex;align-items:center;min-height:40px;padding:0 .75rem;font-size:.86rem;color:var(--muted);text-decoration:none;border-radius:999px}
+.nav a:hover{color:var(--ink);background:var(--card-hi)}
+.lang{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line-2);border-radius:999px;background:var(--card);flex:none}
+.lang button{min-width:44px;min-height:36px;font:600 .78rem/1 var(--f);letter-spacing:.04em;border:0;background:transparent;color:var(--muted);padding:0 .8rem;cursor:pointer;border-radius:999px}
+.lang button[aria-pressed="true"]{background:var(--blue);color:#fff}
+@media (max-width:860px){.nav{display:none}.lang{margin-left:auto}}
+
+section{scroll-margin-top:4.75rem}
+
+/* ===== hero (bento) ===== */
+.hero{padding-block:clamp(1.25rem,3vw,2rem) 0}
+.hero-grid{display:grid;gap:12px;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);align-items:stretch}
+@media (max-width:860px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.hero-grid>div{padding:clamp(1.5rem,4vw,2.75rem);display:flex;flex-direction:column;justify-content:flex-end;min-width:0}
+.eyebrow{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.eyebrow b,.eyebrow span{font-weight:500;font-size:.78rem;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:.3rem .75rem;background:rgba(255,255,255,.02)}
+.eyebrow b{color:#fff;background:var(--pink);border-color:var(--pink)}
+.hero h1{font-weight:600;font-size:clamp(2.9rem,8.5vw,5.6rem);line-height:1.02;letter-spacing:-.04em;margin:clamp(1.25rem,4vw,2.5rem) 0 1.1rem;padding-top:.08em}
+.hero h1 span{display:inline}
+.hero h1 .l1::after{content:" "}
+.hero h1 .l2{color:var(--amber)}
+.lead{font-size:clamp(1rem,1.5vw,1.12rem);font-weight:300;max-width:56ch;color:#D4D4D8}
+.now{margin-top:1.4rem;display:flex;gap:.65rem;align-items:baseline;font-size:.9rem;color:var(--muted);max-width:60ch}
+.dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--signal);flex:none;display:inline-block;box-shadow:0 0 0 3px var(--amber-soft);transform:translateY(-1px)}
+.portrait{margin:0;position:relative;overflow:hidden;padding:0;min-height:18rem}
+.portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 20%;aspect-ratio:767/705}
+.portrait figcaption{position:absolute;left:12px;bottom:12px;background:rgba(10,10,11,.7);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line-2);color:var(--ink);font-size:.75rem;font-weight:500;border-radius:999px;padding:.35rem .8rem}
+@media (max-width:860px){.portrait{min-height:0}.portrait img{height:auto;max-height:26rem}}
+
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:12px}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{padding:clamp(1.1rem,2.5vw,1.6rem);min-width:0;display:grid;gap:.5rem;align-content:start;position:relative;overflow:hidden}
+.kpi::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--pink)}
+.kpi:nth-child(2)::after{background:var(--blue)}
+.kpi:nth-child(3)::after{background:var(--amber)}
+.kpi:nth-child(4)::after{background:var(--ink)}
+.kpi .tag{display:flex;justify-content:space-between;gap:.5rem}
+.kpi .tag>span:last-child{color:var(--faint)}
+.kpi b{font-weight:600;font-size:clamp(2rem,5vw,2.9rem);line-height:1.05;letter-spacing:-.03em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpi b small{font-size:.42em;font-weight:500;margin-left:.2em;color:var(--muted);letter-spacing:0}
+.kpi p{font-size:.85rem;color:var(--muted);line-height:1.5}
+
+/* ===== bands ===== */
+.band{padding-block:clamp(3.5rem,8vw,6rem) 0}
+.band.alt{background:transparent}
+.sec-head .tag{color:var(--pink)}
+.sec-head{display:grid;gap:.6rem;margin-bottom:clamp(1.5rem,3.5vw,2.25rem);max-width:50rem}
+.sec-head h2{font-weight:600;font-size:clamp(1.9rem,4.6vw,3rem);letter-spacing:-.035em;line-height:1.08}
+.sec-head p.sub{color:var(--muted);max-width:62ch;font-size:1rem;font-weight:300}
+
+/* method */
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;counter-reset:s}
+@media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.steps{grid-template-columns:minmax(0,1fr)}}
+.steps li{counter-increment:s;padding:1.35rem;display:grid;gap:.5rem;align-content:start;position:relative}
+.steps li::before{content:counter(s,decimal-leading-zero);font-size:.78rem;font-weight:600;color:var(--blue);font-variant-numeric:tabular-nums}
+.steps h3{font-weight:600;font-size:1.12rem;letter-spacing:-.015em}
+.steps p{color:var(--muted);font-size:.9rem;font-weight:300}
+.steps li:last-child{background:var(--blue);border-color:var(--blue)}
+.steps li:last-child h3{color:#fff}
+.steps li:last-child p,.steps li:last-child::before{color:rgba(255,255,255,.82)}
+
+/* projects */
+.cases{display:grid;gap:12px}
+.case{overflow:hidden}
+.case-bar{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;justify-content:space-between;padding:.85rem clamp(1.25rem,3vw,2rem);background:var(--blue)}
+.case-bar .tag{color:rgba(255,255,255,.85)}
+.live{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:500;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.25rem .7rem}
+.live::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:var(--amber);box-shadow:0 0 0 3px rgba(255,182,39,.3)}
+.case-in{padding:clamp(1.25rem,3vw,2rem);display:grid;gap:1.75rem}
+.case-in h3{font-weight:600;font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.035em;line-height:1.05}
+.case-meta{display:grid;gap:.2rem;margin-top:.6rem}
+.case-meta .role{font-weight:500;font-size:.95rem}
+.case-meta .desc{color:var(--muted);font-size:.92rem}
+.case-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem)}
+@media (max-width:860px){.case-body{grid-template-columns:minmax(0,1fr)}}
+.cap{margin-bottom:.75rem}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tiles>div{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-s);padding:.95rem 1rem;min-width:0}
+.tiles dt{font-size:.76rem;font-weight:500;color:var(--muted);line-height:1.4}
+.tiles dd{margin-top:.4rem;font-weight:600;font-size:clamp(1.45rem,3.8vw,2rem);line-height:1.05;letter-spacing:-.03em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.tiles dd small{font-size:.55em;font-weight:500;color:var(--muted)}
+.delta{margin-top:1rem;display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.delta b{font-weight:600;font-size:.8rem;background:var(--pink-soft);color:var(--pink);border:1px solid rgba(255,61,127,.35);padding:.3rem .6rem;border-radius:999px;white-space:nowrap}
+.how{display:grid;gap:.7rem;counter-reset:h}
+.how li{counter-increment:h;display:grid;grid-template-columns:1.9rem minmax(0,1fr);gap:.5rem;font-size:.93rem;color:#D4D4D8;font-weight:300}
+.how li::before{content:counter(h,decimal-leading-zero);font-size:.76rem;font-weight:600;color:var(--pink);padding-top:.2rem;font-variant-numeric:tabular-nums}
+.bul{display:grid;gap:.55rem}
+.bul li{display:grid;grid-template-columns:.9rem minmax(0,1fr);gap:.45rem;font-size:.92rem;color:#D4D4D8;font-weight:300}
+.bul li::before{content:"";width:.35rem;height:.35rem;border-radius:50%;background:var(--pink);margin-top:.65rem}
+
+/* startups */
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.duo{grid-template-columns:minmax(0,1fr)}}
+.mini{padding:clamp(1.25rem,3vw,1.85rem);display:grid;gap:.85rem;align-content:start}
+.mini h3{font-weight:600;font-size:clamp(1.6rem,4vw,2.1rem);letter-spacing:-.03em}
+.mini>p:not(.when):not(.status){color:var(--muted);font-size:.93rem;font-weight:300}
+.mini .when{color:var(--blue);font-weight:600}
+.mini .status{font-size:.9rem;padding:.85rem 1rem;background:var(--blue-soft);border:1px solid rgba(79,93,255,.35);border-radius:var(--radius-s);color:#E4E4E7}
+.mini a{display:inline-flex;align-items:center;min-height:40px;font-size:.88rem;font-weight:500;justify-self:start;border:1px solid var(--line-2);border-radius:999px;padding:0 1rem;text-decoration:none}
+.mini a:hover{background:var(--card-hi)}
+
+/* comparison chart */
+.chart{padding:clamp(1.25rem,3vw,2rem);margin:0 0 12px}
+.chart-head{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:space-between;align-items:baseline;margin-bottom:1.5rem}
+.chart-head h3{font-weight:600;font-size:clamp(1.15rem,2.6vw,1.4rem);letter-spacing:-.02em}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem 1rem}
+.legend span{display:inline-flex;align-items:center;gap:.45rem}
+.legend i{width:.75rem;height:.75rem;border-radius:3px;display:inline-block}
+.sw-now{background:var(--pink)}
+.sw-past{background:var(--bar-past)}
+.sw-cap{background:repeating-linear-gradient(135deg,var(--bar-past) 0 3px,transparent 3px 6px);outline:1px solid var(--bar-past)}
+.bars{display:grid;gap:1.1rem}
+.bar-row{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr) 4.5rem;gap:.5rem 1rem;align-items:center}
+@media (max-width:640px){.bar-row{grid-template-columns:minmax(0,1fr) auto}.bar-row .track{grid-column:1 / -1;grid-row:2}}
+.bar-row .who{font-weight:500;line-height:1.3;font-size:.95rem}
+.bar-row .who small{display:block;font-weight:300;font-size:.78rem;color:var(--muted)}
+.bar-row .val{font-weight:600;font-size:1.3rem;line-height:1;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:-.02em}
+.track{position:relative;height:.7rem;border-radius:999px;background:var(--bg);border:1px solid var(--line);overflow:hidden}
+.fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--bar-past)}
+.fill.now{background:var(--pink);margin:0;display:block;max-width:none}
+.fill.cap{background:repeating-linear-gradient(135deg,var(--blue) 0 4px,transparent 4px 8px);border:1px solid var(--blue)}
+.axis{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr) 4.5rem;gap:1rem;margin-top:.6rem}
+.axis ol{grid-column:2;display:flex;justify-content:space-between;font-size:.72rem;color:var(--faint);font-variant-numeric:tabular-nums}
+@media (max-width:640px){.axis{grid-template-columns:minmax(0,1fr)}.axis ol{grid-column:1}}
+.chart-note{margin-top:1.25rem;font-size:.82rem;color:var(--muted);max-width:72ch;font-weight:300}
+
+/* career */
+.tl-hint{display:none;margin-bottom:.75rem}
+.tl{display:grid;gap:12px;position:relative}
+.tl>li{position:relative;padding:clamp(1.25rem,3vw,1.75rem);min-width:0}
+.when{display:block;font-weight:600;font-size:1.05rem;letter-spacing:-.01em;margin-bottom:.9rem;color:var(--blue);font-variant-numeric:tabular-nums}
+.tl>li:first-child .when{color:var(--amber)}
+.tl>li{border-top:3px solid var(--blue)}
+.tl>li:first-child{border-top-color:var(--amber)}
+.job{display:grid;gap:1.1rem;min-width:0}
+.job h3{font-weight:600;font-size:clamp(1.35rem,3.2vw,1.7rem);letter-spacing:-.025em}
+.job .sub{color:var(--muted);font-size:.9rem;margin-top:.25rem;font-weight:300}
+.job .role{font-weight:500;margin-top:.4rem;font-size:.95rem}
+.job .tiles dd{font-size:clamp(1.2rem,3vw,1.5rem)}
+.tiles.one{grid-template-columns:minmax(0,1fr)}
+@media (min-width:1000px){
+  .tl-hint{display:block}
+  .tl-scroll{overflow-x:auto;overscroll-behavior-x:contain;padding-bottom:.75rem;scrollbar-color:var(--card-hi) transparent}
+  .tl{grid-auto-flow:column;grid-auto-columns:minmax(24rem,1fr)}
+}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:12px}
+@media (max-width:900px){.skills{grid-template-columns:minmax(0,1fr)}}
+.skill{padding:1.5rem;display:grid;gap:.75rem;align-content:start}
+.skill .tag{color:var(--pink)}
+.skill h3{font-weight:600;font-size:1.3rem;letter-spacing:-.025em}
+.skill p{color:var(--muted);font-size:.92rem;font-weight:300}
+.sub-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media (max-width:760px){.sub-grid{grid-template-columns:minmax(0,1fr)}}
+.sub-grid>div{background:linear-gradient(180deg,var(--card-2) 0%,var(--card) 100%);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.85rem}
+.chips li{font-size:.82rem;font-weight:500;border:1px solid var(--line-2);border-radius:999px;padding:.35rem .8rem;background:var(--bg);color:#D4D4D8}
+.chips.hot li{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* agency + education */
+.info{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px}
+@media (max-width:860px){.info{grid-template-columns:minmax(0,1fr)}}
+.info>div:first-child{padding:clamp(1.25rem,3vw,2rem)}
+.info h2{font-weight:600;font-size:clamp(1.5rem,3.4vw,2rem);letter-spacing:-.03em;margin-bottom:.9rem}
+.info .lede{color:var(--muted);margin-bottom:1.25rem;max-width:60ch;font-weight:300}
+.facts{display:grid;gap:12px;align-content:start}
+.facts div{display:grid;gap:.35rem;padding:1.25rem 1.4rem}
+.facts .tag{color:var(--blue)}
+
+/* contact */
+.contact{display:grid;overflow:hidden}
+.contact li{display:grid;grid-template-columns:9rem minmax(0,1fr) auto;gap:.5rem 1rem;align-items:center;padding:1.1rem clamp(1.1rem,3vw,1.75rem);border-bottom:1px solid var(--line)}
+.contact li:last-child{border-bottom:0}
+@media (max-width:560px){.contact li{grid-template-columns:minmax(0,1fr) auto}.contact .tag{grid-column:1 / -1}}
+.contact .val{font-weight:500;font-size:clamp(1.05rem,3vw,1.45rem);letter-spacing:-.02em;overflow-wrap:anywhere;user-select:all;color:var(--ink);min-width:0}
+.contact a.val{user-select:text}
+.copy{min-height:40px;min-width:64px;font:500 .8rem/1 var(--f);border:1px solid var(--line-2);background:var(--bg);color:var(--ink);border-radius:999px;padding:0 1rem;cursor:pointer;white-space:nowrap}
+.copy:hover{background:var(--pink);border-color:var(--pink);color:#fff}
+
+footer{padding-block:clamp(3rem,7vw,5rem) 2.5rem;color:var(--faint);font-size:.82rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between;border-top:1px solid var(--line);padding-top:1.5rem}
+
+@media (prefers-reduced-motion:no-preference){
+  .lang button,.copy,.nav a,.mini a{transition:background .15s,color .15s}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><i aria-hidden="true"></i>Cao Khiêm</a>
+    <nav class="nav" aria-label="Mục lục / Contents">
+      <a href="#method"><span class="vi">Phương pháp</span><span class="en">Method</span></a>
+      <a href="#projects"><span class="vi">Dự án</span><span class="en">Projects</span></a>
+      <a href="#career"><span class="vi">Kinh nghiệm</span><span class="en">Career</span></a>
+      <a href="#skills"><span class="vi">Kỹ năng</span><span class="en">Skills</span></a>
+      <a href="#contact"><span class="vi">Liên hệ</span><span class="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Ngôn ngữ / Language">
+      <button type="button" data-set="vi" aria-pressed="true">VI</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- 2. HERO -->
+  <section class="hero" aria-labelledby="name">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow mono"><b>Performance Marketer</b><span>Meta Ads · TikTok Ads</span></p>
+          <h1 id="name"><span class="l1">Cao</span><span class="l2">Khiêm</span></h1>
+          <p class="lead vi">Tôi chạy quảng cáo chuyển đổi cho thẩm mỹ viện, thực phẩm chức năng và trang sức trong khoảng 7 năm. Cách làm của tôi bắt đầu từ số liệu: đọc dữ liệu, tìm insight, test content, rồi dồn ngân sách vào bài thắng.</p>
+          <p class="lead en">For about 7 years I have run conversion ads for aesthetic clinics, health supplements and jewelry. My work starts from the numbers: read the data, find the insight, test content, then move the budget to the winners.</p>
+          <p class="now"><span class="dot" aria-hidden="true"></span>
+            <span class="vi">Hiện tại: Leader marketing tại Maya Diamond (TP.HCM), phụ trách performance từ xa cho Kangrea (Hà Nội).</span>
+            <span class="en">Now: marketing lead at Maya Diamond (Ho Chi Minh City) and remote performance lead for Kangrea (Hanoi).</span>
+          </p>
+        </div>
+        <figure class="portrait">
+          <img src="cao-khiem.jpg" width="767" height="705" alt="Chân dung Cao Khiêm / Portrait of Cao Khiêm">
+          <figcaption><span class="vi">Cao Khiêm · 2026</span><span class="en">Cao Khiêm · 2026</span></figcaption>
+        </figure>
+      </div>
+
+      <ul class="kpis" aria-label="Số liệu chính / Key figures">
+        <li class="kpi">
+          <span class="tag"><span class="vi">Kinh nghiệm</span><span class="en">Experience</span><span>01</span></span>
+          <b>~7<small class="vi">năm</small><small class="en">yrs</small></b>
+          <p><span class="vi">kinh nghiệm performance marketing, từ nhân viên lên leader</span><span class="en">in performance marketing, from executive to team lead</span></p>
+        </li>
+        <li class="kpi">
+          <span class="tag"><span class="vi">Ngân sách</span><span class="en">Budget</span><span>02</span></span>
+          <b><span class="vi">3 tỷ</span><span class="en">₫3B</span></b>
+          <p><span class="vi">ngân sách quảng cáo mỗi tháng ở cao điểm, MegaGangNam</span><span class="en">monthly ad budget at peak, MegaGangNam</span></p>
+        </li>
+        <li class="kpi">
+          <span class="tag"><span class="vi">Doanh thu</span><span class="en">Revenue</span><span>03</span></span>
+          <b><span class="vi">8 tỷ</span><span class="en">₫8B</span></b>
+          <p><span class="vi">doanh thu một tháng của 2 cơ sở ở tháng cao điểm, Medic Group</span><span class="en">monthly revenue across 2 clinics in the peak month, Medic Group</span></p>
+        </li>
+        <li class="kpi">
+          <span class="tag"><span class="vi">Chi phí QC / DT</span><span class="en">Ad spend / rev.</span><span>04</span></span>
+          <b>6%</b>
+          <p><span class="vi">chi phí quảng cáo trên doanh thu, Maya Diamond, tháng 9/2026</span><span class="en">ad spend to revenue, Maya Diamond, September 2026</span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 3. METHOD -->
+  <section id="method" class="band" aria-labelledby="method-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="tag"><span class="vi">01 · Lặp lại ở mọi dự án</span><span class="en">01 · Repeated on every project</span></p>
+        <h2 id="method-h"><span class="vi">Cách tôi làm</span><span class="en">How I work</span></h2>
+        <p class="sub vi">Từ thực phẩm chức năng đến kim cương, quy trình giống nhau. Ngành khác nhau chỉ đổi insight và content.</p>
+        <p class="sub en">From supplements to diamonds, the process stays the same. Only the insight and the content change by industry.</p>
+      </div>
+      <ol class="steps">
+        <li><h3><span class="vi">Đọc dữ liệu</span><span class="en">Read the data</span></h3>
+          <p class="vi">Xem bài nào ra đơn, chi phí mỗi tin nhắn, chi phí mỗi số điện thoại.</p>
+          <p class="en">Find which posts drove orders and what each message or phone lead cost.</p></li>
+        <li><h3><span class="vi">Tìm insight</span><span class="en">Find the insight</span></h3>
+          <p class="vi">Rút ra góc tiếp cận và key message mà khách phản hồi tốt.</p>
+          <p class="en">Pull out the angles and key messages customers respond to.</p></li>
+        <li><h3><span class="vi">Đặt hàng content</span><span class="en">Brief the content</span></h3>
+          <p class="vi">Đề xuất kịch bản để team media quay dựng theo định hướng.</p>
+          <p class="en">Write script ideas for the media team to shoot and edit.</p></li>
+        <li><h3><span class="vi">Test</span><span class="en">Test</span></h3>
+          <p class="vi">Chạy ngân sách nhỏ, so chi phí trên mỗi kết quả giữa các bài.</p>
+          <p class="en">Run small budgets and compare cost per result across posts.</p></li>
+        <li><h3><span class="vi">Scale</span><span class="en">Scale</span></h3>
+          <p class="vi">Dồn ngân sách vào bài thắng, luôn có content gối đầu để không đứt mạch.</p>
+          <p class="en">Fund the winners, with new content always queued so delivery never stalls.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4. CURRENT PROJECTS -->
+  <section id="projects" class="band alt" aria-labelledby="proj-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="tag"><span class="vi">02 · Từ 05/2026 đến nay</span><span class="en">02 · May 2026 to present</span></p>
+        <h2 id="proj-h"><span class="vi">Dự án đang phụ trách</span><span class="en">Current projects</span></h2>
+      </div>
+
+      <div class="cases">
+        <article class="case" aria-labelledby="maya-h">
+          <div class="case-bar">
+            <span class="tag"><span class="vi">Báo cáo · tháng 9/2026</span><span class="en">Report · September 2026</span></span>
+            <span class="live"><span class="vi">Đang phụ trách</span><span class="en">Active</span></span>
+          </div>
+          <div class="case-in">
+            <div>
+              <h3 id="maya-h">Maya Diamond</h3>
+              <div class="case-meta">
+                <p class="desc"><span class="vi">Kim cương LAB và trang sức thiết kế · TP.HCM</span><span class="en">Lab-grown diamonds and designer jewelry · Ho Chi Minh City</span></p>
+                <p class="role"><span class="vi">Leader marketing, phụ trách performance · 05/2026 – nay</span><span class="en">Marketing lead, performance · May 2026 – present</span></p>
+              </div>
+            </div>
+            <div class="case-body">
+              <div>
+                <p class="tag cap"><span class="vi">Kết quả tháng 9/2026</span><span class="en">Results, September 2026</span></p>
+                <dl class="tiles">
+                  <div><dt><span class="vi">Doanh thu</span><span class="en">Revenue</span></dt><dd><span class="vi">3,5 tỷ</span><span class="en">₫3.5B</span></dd></div>
+                  <div><dt><span class="vi">Chi phí QC / doanh thu</span><span class="en">Ad spend / revenue</span></dt><dd>6%</dd></div>
+                  <div><dt><span class="vi">Tin nhắn</span><span class="en">Messages</span></dt><dd><span class="vi">4.200</span><span class="en">4,200</span></dd></div>
+                  <div><dt><span class="vi">Chi phí / tin nhắn</span><span class="en">Cost / message</span></dt><dd><span class="vi">50.000<small>đ</small></span><span class="en">₫50,000</span></dd></div>
+                </dl>
+                <p class="delta"><b><span class="vi">▲ 12%/tháng</span><span class="en">▲ 12%/mo</span></b><span><span class="vi">Doanh thu tăng trung bình 12% mỗi tháng kể từ 05/2026.</span><span class="en">Revenue up an average of 12% month over month since May 2026.</span></span></p>
+              </div>
+              <div>
+                <p class="tag cap"><span class="vi">Cách làm</span><span class="en">What I did</span></p>
+                <ol class="how">
+                  <li><span class="vi">Đọc dữ liệu cũ, tìm những bài ra đơn tốt và có chi phí tin nhắn tốt, rồi scale các bài đó.</span><span class="en">Went through past data to find the posts with strong orders and low cost per message, then scaled them.</span></li>
+                  <li><span class="vi">Từ các bài tốt, rút ra insight và key message, giao team media sản xuất thêm content theo định hướng đó.</span><span class="en">Turned the winning posts into insights and key messages, and briefed the media team to produce more in that direction.</span></li>
+                  <li><span class="vi">Có content gối đầu liên tục để scale ngân sách, tăng số tin nhắn và doanh thu.</span><span class="en">Kept a steady queue of content so the budget could scale, lifting messages and revenue.</span></li>
+                  <li><span class="vi">Mở rộng kênh và tuyến nội dung trên TikTok, Threads, Instagram.</span><span class="en">Expanded channels and content lines on TikTok, Threads and Instagram.</span></li>
+                  <li><span class="vi">Dành 5% ngân sách cho quảng cáo thương hiệu để tăng độ phủ.</span><span class="en">Set aside 5% of the budget for brand ads to widen reach.</span></li>
+                  <li><span class="vi">Xây phễu theo hành trình khách hàng.</span><span class="en">Built a funnel around the customer journey.</span></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" aria-labelledby="kang-h">
+          <div class="case-bar">
+            <span class="tag"><span class="vi">Báo cáo · tháng 9/2026</span><span class="en">Report · September 2026</span></span>
+            <span class="live"><span class="vi">Đang phụ trách</span><span class="en">Active</span></span>
+          </div>
+          <div class="case-in">
+            <div>
+              <h3 id="kang-h">Kangrea</h3>
+              <div class="case-meta">
+                <p class="desc"><span class="vi">Thẩm mỹ viện, da liễu và trẻ hoá da · Hà Nội</span><span class="en">Aesthetic and dermatology clinic, skin rejuvenation · Hanoi</span></p>
+                <p class="role"><span class="vi">Marketing từ xa, phụ trách performance · 05/2026 – nay</span><span class="en">Remote performance marketer · May 2026 – present</span></p>
+              </div>
+            </div>
+            <div class="case-body">
+              <div>
+                <p class="tag cap"><span class="vi">Kết quả tháng 9/2026</span><span class="en">Results, September 2026</span></p>
+                <dl class="tiles">
+                  <div><dt><span class="vi">Doanh thu (khách mới và cũ)</span><span class="en">Revenue (new and returning)</span></dt><dd><span class="vi">2 tỷ</span><span class="en">₫2B</span></dd></div>
+                  <div><dt><span class="vi">Chi phí QC / doanh thu</span><span class="en">Ad spend / revenue</span></dt><dd>40%</dd></div>
+                  <div><dt><span class="vi">Số điện thoại</span><span class="en">Phone leads</span></dt><dd><span class="vi">1.200</span><span class="en">1,200</span></dd></div>
+                  <div><dt><span class="vi">Chi phí / số</span><span class="en">Cost / lead</span></dt><dd><span class="vi">660.000<small>đ</small></span><span class="en">₫660,000</span></dd></div>
+                </dl>
+              </div>
+              <div>
+                <p class="tag cap"><span class="vi">Cách làm</span><span class="en">What I did</span></p>
+                <ol class="how">
+                  <li><span class="vi">Đọc dữ liệu để tìm insight.</span><span class="en">Read the data to find insights.</span></li>
+                  <li><span class="vi">Sản xuất, quay dựng video theo insight rồi test nội dung.</span><span class="en">Produced and edited videos around those insights, then tested them.</span></li>
+                  <li><span class="vi">Dồn ngân sách vào bài thắng để tăng số điện thoại, số khách và doanh thu.</span><span class="en">Moved budget to the winners to grow phone leads, customers and revenue.</span></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. STARTUPS -->
+  <section id="startups" class="band" aria-labelledby="start-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="tag"><span class="vi">03 · Startup trong tập đoàn Maya Group</span><span class="en">03 · Startups within Maya Group</span></p>
+        <h2 id="start-h"><span class="vi">Dự án khởi nghiệp</span><span class="en">Startup projects</span></h2>
+        <p class="sub vi">Vai trò: lên kế hoạch, định hướng chân dung khách hàng, tìm insight và test thị trường với ngân sách thấp.</p>
+        <p class="sub en">Role: planning, defining the customer profile, finding insights and testing the market on a small budget.</p>
+      </div>
+      <div class="duo">
+        <article class="mini">
+          <p class="when mono"><span class="vi">08/2026 – 10/2026</span><span class="en">Aug – Oct 2026</span></p>
+          <h3>ZevoAI</h3>
+          <p class="vi">Nhân viên sales AI trả lời inbox Facebook và Zalo 24/7, báo giá theo bảng giá thật và đặt lịch hẹn, dành cho spa, phòng khám thẩm mỹ, nha khoa.</p>
+          <p class="en">An AI sales assistant that answers Facebook and Zalo inboxes 24/7, quotes real prices and books appointments for spas, aesthetic clinics and dental practices.</p>
+          <p class="status"><span class="vi">Lập kế hoạch marketing tổng thể. Đề xuất giai đoạn đầu xây đội sale B2B thay vì chạy quảng cáo; quảng cáo để dành cho lúc mở rộng ra thị trường nước ngoài.</span><span class="en">Wrote the overall marketing plan. Recommended building a B2B sales team first instead of running ads, keeping ads for the later push into international markets.</span></p>
+          <a href="https://zevohq.ai/" target="_blank" rel="noopener">zevohq.ai ↗</a>
+        </article>
+        <article class="mini">
+          <p class="when mono"><span class="vi">09/2026 – nay</span><span class="en">Sep 2026 – present</span></p>
+          <h3>Lendi.vn</h3>
+          <p class="vi">Sàn cho thuê đồ tập, nối người có đồ cho thuê với người cần thuê.</p>
+          <p class="en">A rental marketplace for fitness gear, connecting owners with people who want to rent.</p>
+          <p class="status"><span class="vi">Đang test nhu cầu thị trường: khảo sát chân dung khách hàng và mức sẵn sàng chi trả cho sản phẩm.</span><span class="en">Testing market demand: surveying the customer profile and how much people are willing to pay.</span></p>
+          <a href="https://lendi.vn/" target="_blank" rel="noopener">lendi.vn ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CAREER -->
+  <section id="career" class="band alt" aria-labelledby="career-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="tag"><span class="vi">04 · 2019 → 2026 · mới nhất ở trên</span><span class="en">04 · 2019 → 2026 · newest first</span></p>
+        <h2 id="career-h"><span class="vi">Kinh nghiệm và thành tích</span><span class="en">Career and results</span></h2>
+      </div>
+
+      <figure class="chart" aria-labelledby="chart-h" style="margin-left:0;margin-right:0">
+        <div class="chart-head">
+          <h3 id="chart-h"><span class="vi">Chi phí QC / doanh thu qua các dự án</span><span class="en">Ad spend / revenue across projects</span></h3>
+          <div class="legend tag">
+            <span><i class="sw-now" aria-hidden="true"></i><span class="vi">Đang phụ trách</span><span class="en">Active</span></span>
+            <span><i class="sw-past" aria-hidden="true"></i><span class="vi">Đã làm</span><span class="en">Past</span></span>
+            <span><i class="sw-cap" aria-hidden="true"></i><span class="vi">Mức trần (dưới)</span><span class="en">Upper bound (under)</span></span>
+          </div>
+        </div>
+        <div class="bars">
+          <div class="bar-row">
+            <p class="who">Maya Diamond<small><span class="vi">tháng 9/2026</span><span class="en">September 2026</span></small></p>
+            <div class="track" aria-hidden="true"><span class="fill now" style="width:12%"></span></div>
+            <p class="val">6%</p>
+          </div>
+          <div class="bar-row">
+            <p class="who">Eureka<small><span class="vi">tháng tốt nhất</span><span class="en">best month</span></small></p>
+            <div class="track" aria-hidden="true"><span class="fill" style="width:30%"></span></div>
+            <p class="val">15%</p>
+          </div>
+          <div class="bar-row">
+            <p class="who">Medic Group<small><span class="vi">trên doanh thu mới, 2021–2022</span><span class="en">on new revenue, 2021–2022</span></small></p>
+            <div class="track" aria-hidden="true"><span class="fill cap" style="width:60%"></span></div>
+            <p class="val">&lt;30%</p>
+          </div>
+          <div class="bar-row">
+            <p class="who">Kangrea<small><span class="vi">tháng 9/2026, doanh thu gồm khách mới và cũ</span><span class="en">September 2026, revenue incl. new and returning</span></small></p>
+            <div class="track" aria-hidden="true"><span class="fill now" style="width:80%"></span></div>
+            <p class="val">40%</p>
+          </div>
+        </div>
+        <div class="axis" aria-hidden="true"><ol><li>0%</li><li>10%</li><li>20%</li><li>30%</li><li>40%</li><li>50%</li></ol></div>
+        <figcaption class="chart-note"><span class="vi">Thấp hơn là tốt hơn. Cột vẽ đúng tỷ lệ trên trục 0–50%. Mỗi dự án tính trên một loại doanh thu khác nhau (ghi dưới tên), nên đây là để đọc nhanh, không phải so sánh tuyệt đối.</span><span class="en">Lower is better. Bars are drawn to scale on a 0–50% axis. Each project uses a different revenue base (noted under its name), so this is a quick read, not a like-for-like comparison.</span></figcaption>
+      </figure>
+
+      <p class="tl-hint tag" aria-hidden="true"><span class="vi">Cuộn ngang để xem thêm →</span><span class="en">Scroll sideways for more →</span></p>
+      <div class="tl-scroll" tabindex="0" role="region" aria-label="Dòng thời gian / Timeline">
+      <ol class="tl">
+        <li>
+          <span class="when">2023 – 04/2026</span>
+          <div class="job">
+            <div>
+              <h3>Hamo Global · MegaGangNam</h3>
+              <p class="sub"><span class="vi">Phòng khám thẩm mỹ, trẻ hoá da · thị trường nội địa (16 tỉnh thành) và Việt kiều toàn cầu</span><span class="en">Aesthetic clinic, skin rejuvenation · domestic market (16 provinces) and overseas Vietnamese worldwide</span></p>
+              <p class="role"><span class="vi">Chuyên viên Digital Marketing Facebook &amp; TikTok Ads</span><span class="en">Digital Marketing Specialist, Facebook &amp; TikTok Ads</span></p>
+            </div>
+            <dl class="tiles">
+              <div><dt><span class="vi">Ngân sách / tháng</span><span class="en">Budget / month</span></dt><dd><span class="vi">1,5 tỷ</span><span class="en">₫1.5B</span> <small><span class="vi">TB · cao điểm 3 tỷ</span><span class="en">avg · peak ₫3B</span></small></dd></div>
+              <div><dt><span class="vi">Chi phí / lead</span><span class="en">Cost / lead</span></dt><dd>&lt; <span class="vi">800.000<small>đ</small></span><span class="en">₫800,000</span></dd></div>
+              <div><dt><span class="vi">ROAS nội địa</span><span class="en">ROAS, domestic</span></dt><dd>&gt; 3</dd></div>
+              <div><dt><span class="vi">ROAS quốc tế</span><span class="en">ROAS, international</span></dt><dd>&gt; 5</dd></div>
+            </dl>
+            <ul class="bul">
+              <li><span class="vi">Lên ý tưởng, đề xuất kịch bản; team media sản xuất 30–40 content mỗi tháng cho dịch vụ trẻ hoá.</span><span class="en">Developed ideas and scripts; the media team produced 30–40 pieces of content a month for rejuvenation services.</span></li>
+              <li><span class="vi">Test để tìm content có giá lead rẻ và ROAS tốt, rồi scale ngân sách để đạt đủ số lead tích cực và ROAS tối thiểu ở cả hai thị trường.</span><span class="en">Tested for content with cheap leads and strong ROAS, then scaled budget to hit qualified-lead and minimum-ROAS targets in both markets.</span></li>
+              <li><span class="vi">Xây hệ thống báo cáo hiệu suất tự động hằng tuần; ứng dụng AI và automation vào A/B testing.</span><span class="en">Built an automated weekly performance report; applied AI and automation to A/B testing.</span></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <span class="when">2022 – 2023</span>
+          <div class="job">
+            <div>
+              <h3>Thanh Hằng Beauty Medi</h3>
+              <p class="sub"><span class="vi">Phòng khám thẩm mỹ phân khúc cao cấp</span><span class="en">Premium aesthetic clinic</span></p>
+              <p class="role"><span class="vi">Trưởng nhóm Marketing · team 3 người</span><span class="en">Marketing Team Lead · team of 3</span></p>
+            </div>
+            <dl class="tiles one">
+              <div><dt><span class="vi">Ngân sách / tháng</span><span class="en">Budget / month</span></dt><dd><span class="vi">200 triệu</span><span class="en">₫200M</span> <small><span class="vi">TB</span><span class="en">avg</span></small></dd></div>
+            </dl>
+            <ul class="bul">
+              <li><span class="vi">Triển khai chiến dịch thương hiệu theo tháng, quý, năm.</span><span class="en">Ran brand campaigns on monthly, quarterly and yearly plans.</span></li>
+              <li><span class="vi">Chạy quảng cáo chuyển đổi cho dịch vụ tiểu phẫu mũi và bọng mắt.</span><span class="en">Ran conversion ads for minor nose and under-eye procedures.</span></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <span class="when">2021 – 2022</span>
+          <div class="job">
+            <div>
+              <h3>Medic Group</h3>
+              <p class="sub"><span class="vi">Tập đoàn gồm nhiều thương hiệu thẩm mỹ · phụ trách 2 cơ sở</span><span class="en">Group of aesthetic clinic brands · responsible for 2 locations</span></p>
+              <p class="role"><span class="vi">Marketing Leader · team 5 người</span><span class="en">Marketing Leader · team of 5</span></p>
+            </div>
+            <dl class="tiles">
+              <div><dt><span class="vi">Doanh thu 2 cơ sở</span><span class="en">Revenue, 2 clinics</span></dt><dd><span class="vi">8 tỷ</span><span class="en">₫8B</span> <small><span class="vi">/ tháng cao điểm</span><span class="en">/ peak month</span></small></dd></div>
+              <div><dt><span class="vi">Chi phí QC / doanh thu mới</span><span class="en">Ad spend / new revenue</span></dt><dd>&lt; 30%</dd></div>
+              <div><dt><span class="vi">Chi phí / khách</span><span class="en">Cost / customer</span></dt><dd>&lt; <span class="vi">1,5 triệu</span><span class="en">₫1.5M</span></dd></div>
+              <div><dt><span class="vi">Chi phí / lead</span><span class="en">Cost / lead</span></dt><dd>&lt; <span class="vi">300.000<small>đ</small></span><span class="en">₫300,000</span></dd></div>
+            </dl>
+            <ul class="bul">
+              <li><span class="vi">Làm việc với team media sản xuất 60–100 content mỗi tháng cho 5–10 dịch vụ.</span><span class="en">Worked with a media team producing 60–100 pieces of content a month across 5–10 services.</span></li>
+              <li><span class="vi">Tối ưu chi phí tin nhắn và lead, tìm dịch vụ chủ lực rồi scale ngân sách và tối ưu chi phí trên mỗi khách.</span><span class="en">Optimized cost per message and per lead, found the lead services, then scaled budget while managing cost per customer.</span></li>
+              <li><span class="vi">Chia KPI cho từng nhân sự ads, đào tạo team và dựng quy trình báo cáo chung để đạt đủ lead, khách và doanh thu.</span><span class="en">Set KPIs for each ads specialist, trained the team and built a shared reporting process to hit lead, customer and revenue targets.</span></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <span class="when">2019 – 2021</span>
+          <div class="job">
+            <div>
+              <h3>Eureka</h3>
+              <p class="sub"><span class="vi">Thực phẩm chức năng hỗ trợ điều trị các vấn đề sức khoẻ</span><span class="en">Health supplements for common health conditions</span></p>
+              <p class="role"><span class="vi">Nhân viên → Trưởng nhóm Marketing (2020–2021) · team 5 người</span><span class="en">Executive → Marketing Team Lead (2020–2021) · team of 5</span></p>
+            </div>
+            <dl class="tiles">
+              <div><dt><span class="vi">Doanh thu / tháng</span><span class="en">Revenue / month</span></dt><dd><span class="vi">0 → 3 tỷ</span><span class="en">₫0 → 3B</span> <small><span class="vi">trong 6 tháng</span><span class="en">in 6 months</span></small></dd></div>
+              <div><dt><span class="vi">Chi phí QC / doanh thu</span><span class="en">Ad spend / revenue</span></dt><dd>15% <small><span class="vi">tháng tốt nhất</span><span class="en">best month</span></small></dd></div>
+              <div><dt><span class="vi">Chi phí / tin nhắn</span><span class="en">Cost / message</span></dt><dd><span class="vi">50.000<small>đ</small></span><span class="en">₫50,000</span></dd></div>
+              <div><dt><span class="vi">Chi phí / số</span><span class="en">Cost / phone lead</span></dt><dd><span class="vi">500.000<small>đ</small></span><span class="en">₫500,000</span></dd></div>
+            </dl>
+            <ul class="bul">
+              <li><span class="vi">Tách một nhánh sản phẩm xương khớp khỏi hệ thống chính và xây doanh thu từ con số 0.</span><span class="en">Split a joint-pain product line off the main business and built its revenue from zero.</span></li>
+              <li><span class="vi">Hợp tác với các đơn vị quay video tư liệu, quảng cáo kiểu truyền hình để lấy media cho quảng cáo; tối ưu chi phí trên mỗi số điện thoại.</span><span class="en">Partnered with production houses making documentary and TV-style footage to use as ad creative; optimized cost per phone lead.</span></li>
+              <li><span class="vi">Đưa đủ lead tích cực cho team sale gọi chốt; xây kế hoạch IMC theo tháng, quý, năm và chuẩn hoá quy trình cho team Ads.</span><span class="en">Delivered enough qualified leads for the sales team to close; built monthly, quarterly and yearly IMC plans and standardized the ads team's workflow.</span></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. SKILLS -->
+  <section id="skills" class="band" aria-labelledby="skills-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="tag"><span class="vi">05 · Ba thế mạnh chính</span><span class="en">05 · Three core strengths</span></p>
+        <h2 id="skills-h"><span class="vi">Kỹ năng</span><span class="en">Skills</span></h2>
+      </div>
+      <div class="skills">
+        <div class="skill">
+          <p class="tag">01</p>
+          <h3><span class="vi">Chạy ads thực chiến</span><span class="en">Hands-on paid ads</span></h3>
+          <p class="vi">Meta Ads và TikTok Ads cho ngân sách từ 200 triệu đến 3 tỷ mỗi tháng. Tối ưu theo chi phí tin nhắn, chi phí số, chi phí khách và ROAS.</p>
+          <p class="en">Meta Ads and TikTok Ads on budgets from ₫200M to ₫3B a month, optimized for cost per message, cost per lead, cost per customer and ROAS.</p>
+        </div>
+        <div class="skill">
+          <p class="tag">02</p>
+          <h3><span class="vi">Phân tích dữ liệu</span><span class="en">Data analysis</span></h3>
+          <p class="vi">Đọc kết quả theo từng content, dịch vụ và tài khoản để quyết định tắt hay scale, và tìm ra insight cho lứa content tiếp theo.</p>
+          <p class="en">Reading results by content, service and ad account to decide what to cut or scale, and to find the insight for the next round of content.</p>
+        </div>
+        <div class="skill">
+          <p class="tag">03</p>
+          <h3><span class="vi">Ứng dụng AI</span><span class="en">Applied AI</span></h3>
+          <p class="vi">Những việc trước đây không đủ thời gian để làm, nay làm được nhờ AI:</p>
+          <p class="en">Work I never had time for before, now handled with AI:</p>
+          <ul class="bul">
+            <li><span class="vi">Tự động hoá báo cáo ads</span><span class="en">Automated ads reporting</span></li>
+            <li><span class="vi">Research thị trường</span><span class="en">Market research</span></li>
+            <li><span class="vi">Phân tích dữ liệu</span><span class="en">Data analysis</span></li>
+            <li><span class="vi">Viết kịch bản content</span><span class="en">Content scripts</span></li>
+            <li><span class="vi">Làm video</span><span class="en">Video production</span></li>
+            <li><span class="vi">Xây kênh TikTok và YouTube</span><span class="en">Building TikTok and YouTube channels</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="sub-grid">
+        <div>
+          <p class="tag"><span class="vi">Công cụ</span><span class="en">Tools</span></p>
+          <ul class="chips hot">
+            <li>Meta Ads</li><li>TikTok Ads</li><li>Claude</li><li>ChatGPT</li><li>Gemini</li><li>CapCut</li><li>Pancake</li>
+          </ul>
+        </div>
+        <div>
+          <p class="tag"><span class="vi">Kỹ năng khác</span><span class="en">Also</span></p>
+          <ul class="chips">
+            <li><span class="vi">Quản lý team 3–5 người</span><span class="en">Leading teams of 3–5</span></li>
+            <li><span class="vi">Chiến lược tăng trưởng doanh thu</span><span class="en">Revenue growth strategy</span></li>
+            <li><span class="vi">Nghiên cứu thị trường</span><span class="en">Market research</span></li>
+            <li><span class="vi">Tâm lý, hành vi khách hàng</span><span class="en">Customer behavior</span></li>
+            <li><span class="vi">Quản lý dự án</span><span class="en">Project management</span></li>
+            <li><span class="vi">Quản lý thời gian</span><span class="en">Time management</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. AGENCY + EDUCATION -->
+  <section id="services" class="band alt" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="tag"><span class="vi">06 · Agency, học vấn</span><span class="en">06 · Agency, education</span></p>
+        <h2 id="svc-h"><span class="vi">Làm việc theo hình thức agency</span><span class="en">Agency work</span></h2>
+      </div>
+      <div class="info">
+        <div>
+          <p class="lede vi">Tôi làm cùng một nhóm freelance, nhận dự án cho doanh nghiệp ngành thẩm mỹ, thực phẩm chức năng, trang sức và thời trang.</p>
+          <p class="lede en">I work with a small freelance team on projects for businesses in aesthetics, health supplements, jewelry and fashion.</p>
+          <ul class="bul">
+            <li><span class="vi">Cung cấp tài khoản quảng cáo Meta.</span><span class="en">Meta ad accounts for businesses.</span></li>
+            <li><span class="vi">Tư vấn nên làm marketing trên TikTok, Meta hay Google để dùng nguồn lực hiệu quả nhất.</span><span class="en">Advice on whether to invest in TikTok, Meta or Google, so resources go where they work best.</span></li>
+          </ul>
+        </div>
+        <div class="facts">
+          <div>
+            <p class="tag"><span class="vi">Học vấn · 2014 – 2019</span><span class="en">Education · 2014 – 2019</span></p>
+            <p class="vi">Đại học Bách Khoa Hà Nội, Cử nhân Kinh tế Công nghiệp</p>
+            <p class="en">Hanoi University of Science and Technology, Bachelor of Industrial Economics</p>
+          </div>
+          <div>
+            <p class="tag"><span class="vi">Ngôn ngữ</span><span class="en">Languages</span></p>
+            <p class="vi">Tiếng Việt, tiếng Anh</p>
+            <p class="en">Vietnamese, English</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CONTACT -->
+  <section id="contact" class="band" aria-labelledby="contact-h" style="border-bottom:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="tag"><span class="vi">07 · Thông tin công khai</span><span class="en">07 · Public details</span></p>
+        <h2 id="contact-h"><span class="vi">Liên hệ</span><span class="en">Contact</span></h2>
+      </div>
+      <ul class="contact">
+        <li>
+          <span class="tag">Email</span>
+          <span class="val">khiemquancao@gmail.com</span>
+          <button type="button" class="copy" data-copy="khiemquancao@gmail.com" aria-label="Chép email / Copy email"><span class="vi">Chép</span><span class="en">Copy</span></button>
+        </li>
+        <li>
+          <span class="tag"><span class="vi">Điện thoại</span><span class="en">Phone</span></span>
+          <span class="val"><span class="vi">0943 134 391</span><span class="en">+84 943 134 391</span></span>
+          <button type="button" class="copy" data-copy="0943 134 391" data-copy-en="+84 943 134 391" aria-label="Chép số điện thoại / Copy phone number"><span class="vi">Chép</span><span class="en">Copy</span></button>
+        </li>
+        <li>
+          <span class="tag">Facebook</span>
+          <a class="val" href="https://www.facebook.com/rito1996/" target="_blank" rel="noopener">facebook.com/rito1996</a>
+          <button type="button" class="copy" data-copy="https://www.facebook.com/rito1996/" aria-label="Chép link Facebook / Copy Facebook link"><span class="vi">Chép</span><span class="en">Copy</span></button>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<!-- 10. FOOTER -->
+<footer>
+  <div class="wrap">
+    <span>© 2026 Cao Khiêm</span>
+    <span class="vi">Số liệu do Cao Khiêm tổng hợp theo từng dự án, cập nhật 11/2026</span>
+    <span class="en">Figures compiled by Cao Khiêm per project, updated November 2026</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var current='vi';
+  function apply(l){
+    current=l;
+    root.setAttribute('data-lang',l);
+    root.lang=l;
+    var btns=document.querySelectorAll('[data-set]');
+    for(var i=0;i<btns.length;i++){btns[i].setAttribute('aria-pressed',String(btns[i].getAttribute('data-set')===l));}
+  }
+  var start=null, h=(location.hash||'').slice(1).toLowerCase();
+  if(h==='en'||h==='vi'){start=h;}
+  if(!start){try{start=localStorage.getItem('ck-lang');}catch(e){}}
+  apply(start==='en'?'en':'vi');
+
+  var setters=document.querySelectorAll('[data-set]');
+  for(var i=0;i<setters.length;i++){
+    setters[i].addEventListener('click',function(){
+      var l=this.getAttribute('data-set');
+      apply(l);
+      try{localStorage.setItem('ck-lang',l);}catch(e){}
+    });
+  }
+  window.addEventListener('hashchange',function(){
+    var x=(location.hash||'').slice(1).toLowerCase();
+    if(x==='en'||x==='vi'){apply(x);try{localStorage.setItem('ck-lang',x);}catch(e){}}
+  });
+
+  function selectVal(b){
+    var val=b.parentNode.querySelector('.val');
+    if(!val)return;
+    try{
+      var r=document.createRange(); r.selectNodeContents(val);
+      var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }catch(e){}
+  }
+  var copies=document.querySelectorAll('.copy');
+  for(var j=0;j<copies.length;j++){
+    copies[j].addEventListener('click',function(){
+      var b=this;
+      var text=(current==='en'&&b.getAttribute('data-copy-en'))||b.getAttribute('data-copy');
+      var vi=b.querySelector('.vi'), en=b.querySelector('.en');
+      function done(){
+        if(vi)vi.textContent='Đã chép'; if(en)en.textContent='Copied';
+        setTimeout(function(){ if(vi)vi.textContent='Chép'; if(en)en.textContent='Copy'; },1600);
+      }
+      function fallback(){
+        selectVal(b);
+        if(vi)vi.textContent='Đã chọn'; if(en)en.textContent='Selected';
+        setTimeout(function(){ if(vi)vi.textContent='Chép'; if(en)en.textContent='Copy'; },1600);
+      }
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(done,fallback);
+        }else{fallback();}
+      }catch(e){fallback();}
+    });
+  }
+})();
+</script>
+</body>
+</html>
