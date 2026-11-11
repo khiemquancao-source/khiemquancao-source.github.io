@@ -251,7 +251,12 @@
   @media (max-width: 700px) {
     .ledger__rows li { grid-template-columns: 1fr; gap: 2px; }
     .ledger__fig { font-size: clamp(2.3rem, 11vw, 3.4rem); }
-    .ledger__what span { display: none; }
+    .ledger__what > span { display: none; }
+    .ledger__what b { font-size: var(--sc-t-sm); line-height: 1.3; font-weight: 600; color: #fff; }
+    .ledger__head { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .ledger__stage { grid-template-rows: 1fr auto; padding-top: calc(4.2rem + env(safe-area-inset-top, 0px)); }
+    .ledger__rows li { padding-block: 0.55rem; }
+    .ledger__foot { flex-direction: column; align-items: flex-start; gap: var(--sc-2); }
   }
 
   /* ---------------------------------------------------- 04 the scale desk (signature) */
@@ -516,15 +521,15 @@
           </li>
           <li data-at="0.26 0.44">
             <p class="ledger__fig"><span data-fig="8" data-dec="0">0</span><small class="vi">tỷ/tháng</small><small class="en">B ₫/mo</small></p>
-            <p class="ledger__what"><b><span class="vi">Medic Group, 2 cơ sở, tháng cao điểm</span><span class="en">Medic Group, 2 clinics, peak month</span></b><span class="vi">Chi phí quảng cáo dưới 30% doanh thu mới, dưới 1,5 triệu mỗi khách.</span><span class="en">Ad spend under 30% of new revenue, under ₫1.5M per customer.</span></p>
+            <p class="ledger__what"><b><span class="vi">Doanh thu Medic Group, 2 cơ sở, tháng cao điểm</span><span class="en">Medic Group revenue, 2 clinics, peak month</span></b><span class="vi">Chi phí quảng cáo dưới 30% doanh thu mới, dưới 1,5 triệu mỗi khách.</span><span class="en">Ad spend under 30% of new revenue, under ₫1.5M per customer.</span></p>
           </li>
           <li data-at="0.4 0.58" style="--row-c:var(--pink)">
             <p class="ledger__fig"><span data-fig="3" data-dec="0">0</span><small class="vi">tỷ/tháng</small><small class="en">B ₫/mo</small></p>
-            <p class="ledger__what"><b><span class="vi">Eureka, từ 0 trong 6 tháng</span><span class="en">Eureka, from zero in six months</span></b><span class="vi">Tháng tốt nhất: chi phí quảng cáo 15% doanh thu, 500.000đ mỗi số điện thoại.</span><span class="en">Best month: ad spend 15% of revenue, ₫500,000 per phone lead.</span></p>
+            <p class="ledger__what"><b><span class="vi">Doanh thu Eureka, từ 0 lên trong 6 tháng</span><span class="en">Eureka revenue, built from zero in six months</span></b><span class="vi">Tháng tốt nhất: chi phí quảng cáo 15% doanh thu, 500.000đ mỗi số điện thoại.</span><span class="en">Best month: ad spend 15% of revenue, ₫500,000 per phone lead.</span></p>
           </li>
           <li data-at="0.54 0.72" style="--row-c:#fff">
             <p class="ledger__fig"><span data-fig="3" data-dec="0">0</span><small class="vi">tỷ/tháng</small><small class="en">B ₫/mo</small></p>
-            <p class="ledger__what"><b><span class="vi">Ngân sách cao điểm, MegaGangNam</span><span class="en">Peak ad budget, MegaGangNam</span></b><span class="vi">Trung bình 1,5 tỷ mỗi tháng. ROAS nội địa trên 3, quốc tế trên 5.</span><span class="en">Average ₫1.5B a month. ROAS above 3 domestic, above 5 international.</span></p>
+            <p class="ledger__what"><b><span class="vi">Ngân sách quảng cáo cao điểm, MegaGangNam</span><span class="en">Peak ad budget managed, MegaGangNam</span></b><span class="vi">Trung bình 1,5 tỷ mỗi tháng. ROAS nội địa trên 3, quốc tế trên 5.</span><span class="en">Average ₫1.5B a month. ROAS above 3 domestic, above 5 international.</span></p>
           </li>
         </ol>
         <div class="ledger__foot">
